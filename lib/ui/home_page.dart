@@ -1,7 +1,6 @@
 import 'package:day03_ex/model/user_model.dart';
 import 'package:day03_ex/repository/repository.dart';
 import 'package:day03_ex/res/dimens.dart';
-import 'package:day03_ex/themes/style_text.dart';
 import 'package:day03_ex/ui/list_users.dart';
 import 'package:flutter/material.dart';
 
@@ -34,12 +33,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // ThemeData change with system theme
     return Scaffold(
-      backgroundColor: Colors.white,
+      // backgroundColor: Color(0xFFf0f2f5),
       body: SafeArea(
         bottom: false,
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.all(Dimens.gap_dp16),
+          padding: EdgeInsets.symmetric(vertical: Dimens.gap_dp16),
           child: _buildContent(),
         ),
       ),
@@ -47,12 +46,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildContent() {
-    if (!isLoading) {
-      return Center(
-        child: CircularProgressIndicator(),
-      );
-    }
-
-    return ListUsers(users: users);
+    return ListUsers(isLoading: isLoading, users: users);
   }
 }

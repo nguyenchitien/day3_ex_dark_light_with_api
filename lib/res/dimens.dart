@@ -10,7 +10,9 @@ class Dimens {
   static const double font_sp28 = 28;
   static const double font_sp32 = 32;
 
+  static const double gap_dp4 = 4;
   static const double gap_dp8 = 8;
+  static const double gap_dp12 = 12;
   static const double gap_dp16 = 16;
   static const double gap_dp24 = 24;
   static const double gap_dp32 = 32;
@@ -24,6 +26,7 @@ class Gaps {
   static Widget hGap32 = const SizedBox(width: Dimens.gap_dp32);
 
   /// vertical
+  static Widget vGap8 = const SizedBox(height: Dimens.gap_dp8);
   static Widget vGap16 = const SizedBox(height: Dimens.gap_dp16);
   static Widget vGap24 = const SizedBox(height: Dimens.gap_dp24);
   static Widget vGap32 = const SizedBox(height: Dimens.gap_dp32);
