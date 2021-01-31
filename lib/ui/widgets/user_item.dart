@@ -30,14 +30,13 @@ class UserItem extends StatelessWidget {
       padding: EdgeInsets.all(Dimens.gap_dp16),
       margin: EdgeInsets.only(bottom: 5),
       decoration: BoxDecoration(
-        // borderRadius: BorderRadius.circular(Dimens.gap_dp12),
-        color: Colors.white,
+        color: Theme.of(context).cardColor,
         boxShadow: [
-          BoxShadow(
-            color: Colors.grey[200],
-            blurRadius: 16,
-            offset: Offset(0, 1),
-          )
+          // BoxShadow(
+          //   color: Co,
+          //   blurRadius: 16,
+          //   offset: Offset(0, 1),
+          // )
         ],
       ),
       child: Row(
@@ -45,7 +44,7 @@ class UserItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CircleLoadingImage(
-            "${user.picture.mediumImg}",
+            "${user.picture.largeImg}",
             width: itemHeight,
             height: itemHeight,
           ),
@@ -62,7 +61,7 @@ class UserItem extends StatelessWidget {
                   await showAvatarModalBottomSheet(
                     expand: true,
                     context: context,
-                    url: user.picture.thumbnailImg,
+                    url: user.picture.mediumImg,
                     backgroundColor: Colors.transparent,
                     builder: (context) => _buildContentModel(context),
                   );
@@ -90,7 +89,7 @@ class UserItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(user.name.toString(),
-                  style: Theme.of(context).textTheme.headline6),
+                  style: Theme.of(context).textTheme.headline2),
               Gaps.vGap8,
               Text(user.location.country,
                   style: Theme.of(context).textTheme.subtitle1),
@@ -109,14 +108,14 @@ class UserItem extends StatelessWidget {
   Widget _buildIconText(BuildContext context, String title) {
     return Row(
       children: [
-        Icon(Icons.phone_android_outlined, color: Colors.grey[600]),
+        Icon(Icons.phone_android_outlined),
         Gaps.vGap8,
         Text(
           "${user.phone}",
           style: Theme.of(context)
               .textTheme
-              .subtitle2
-              .copyWith(fontSize: Dimens.font_sp16, color: Colors.grey[600]),
+              .subtitle1
+              .copyWith(fontSize: Dimens.font_sp16),
         ),
       ],
     );

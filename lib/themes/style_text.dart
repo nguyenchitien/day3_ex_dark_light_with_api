@@ -6,8 +6,6 @@ class StylesText {
   static const h1 = TextStyle(
     fontSize: Dimens.font_sp32,
     fontFamily: FontFamily.fAvenirNextLTPro,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 1,
   );
 
   static const h2 = TextStyle(

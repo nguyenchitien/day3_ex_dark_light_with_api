@@ -5,6 +5,10 @@ import 'package:day03_ex/ui/list_users.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
+  final Function changeDarkThemeCallBack;
+
+  const HomePage({this.changeDarkThemeCallBack});
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -31,9 +35,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // ThemeData change with system theme
     return Scaffold(
-      backgroundColor: Color(0xFFf0f2f5),
       body: SafeArea(
         bottom: false,
         child: Container(
@@ -41,6 +43,10 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.symmetric(vertical: Dimens.gap_dp16),
           child: _buildContent(),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: widget.changeDarkThemeCallBack,
+        child: Icon(Icons.wb_sunny_sharp),
       ),
     );
   }

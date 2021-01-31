@@ -1,3 +1,4 @@
+import 'package:day03_ex/themes/app_theme.dart';
 import 'package:day03_ex/ui/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -6,24 +7,40 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  var isDarkMode = false;
+
+  _handleChangeDarkThem() {
+    setState(() {
+      isDarkMode = !isDarkMode;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarIconBrightness: Brightness.light,
-        statusBarBrightness: Brightness.light,
-        statusBarColor: Colors.transparent, // status bar color
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: isDarkMode ? Brightness.light : Brightness.dark,
+        statusBarIconBrightness:
+            isDarkMode ? Brightness.dark : Brightness.light,
+        systemNavigationBarIconBrightness:
+            isDarkMode ? Brightness.dark : Brightness.light,
       ),
     );
 
     return MaterialApp(
       title: 'day03_ex',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.light().copyWith(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
+      theme: AppTheme.getTheme(isDarkMode).copyWith(
+        brightness: isDarkMode ? Brightness.dark : Brightness.light,
       ),
-      home: HomePage(),
+      home: HomePage(changeDarkThemeCallBack: _handleChangeDarkThem),
     );
   }
 }

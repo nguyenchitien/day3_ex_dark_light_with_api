@@ -20,7 +20,7 @@ class ListUsers extends StatelessWidget {
         children: [
           Text(
             "List friends",
-            style: StylesText.h1,
+            style: Theme.of(context).textTheme.headline1,
           ),
           Gaps.vGap16,
           !isLoading ? _buildShimmerLoading() : _buildListUsers(),
