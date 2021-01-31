@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     // ThemeData change with system theme
     return Scaffold(
-      // backgroundColor: Color(0xFFf0f2f5),
+      backgroundColor: Color(0xFFf0f2f5),
       body: SafeArea(
         bottom: false,
         child: Container(

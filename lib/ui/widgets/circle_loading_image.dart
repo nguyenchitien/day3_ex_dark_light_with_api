@@ -12,7 +12,8 @@ class CircleLoadingImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(width / 2),
+      borderRadius:
+          BorderRadius.circular(width == double.infinity ? 500 : width / 2),
       child: CachedNetworkImage(
         width: width,
         height: height,

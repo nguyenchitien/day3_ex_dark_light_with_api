@@ -6,6 +6,7 @@ class Location {
   Location({this.latitude, this.longitude});
 
   Location.fromJson(dynamic json) {
+    // print(json);
     country = json["country"];
     latitude = double.parse(json["coordinates"]["latitude"].toString());
     longitude = double.parse(json["coordinates"]["longitude"].toString());
