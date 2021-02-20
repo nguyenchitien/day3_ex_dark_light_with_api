@@ -26,11 +26,6 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarBrightness: isDarkMode ? Brightness.light : Brightness.dark,
-        statusBarIconBrightness:
-            isDarkMode ? Brightness.dark : Brightness.light,
-        systemNavigationBarIconBrightness:
-            isDarkMode ? Brightness.dark : Brightness.light,
       ),
     );
 
@@ -38,8 +33,12 @@ class _MyAppState extends State<MyApp> {
       title: 'day03_ex',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.getTheme(isDarkMode).copyWith(
-        brightness: isDarkMode ? Brightness.dark : Brightness.light,
-      ),
+          brightness: isDarkMode ? Brightness.dark : Brightness.light,
+          appBarTheme: AppBarTheme(
+            elevation: 0,
+            color: Colors.transparent,
+            brightness: isDarkMode ? Brightness.dark : Brightness.light,
+          )),
       home: HomePage(changeDarkThemeCallBack: _handleChangeDarkThem),
     );
   }
